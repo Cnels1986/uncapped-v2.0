@@ -19,11 +19,13 @@ defmodule Uncapped.Router do
 
     resources "/users", UserController, only: [:index, :show, :new, :create]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Uncapped do
-  #   pipe_through :api
-  # end
+  scope "/manage", Uncapped do
+    pipe_through [:browser, :authenticate_user]
+
+    resources "/breweries", BreweryController, only: [:index, :show, :new, :create, :delete]
+  end
 end
