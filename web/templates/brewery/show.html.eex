@@ -1,0 +1,12 @@
+<h2>Show brewery</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @brewery.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Back", to: brewery_path(@conn, :index) %></span>

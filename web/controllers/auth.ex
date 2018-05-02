@@ -1,5 +1,6 @@
 defmodule Uncapped.Auth do
   import Plug.Conn
+  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   def init(opts) do
     Keyword.fetch!(opts, :repo)
@@ -22,8 +23,6 @@ defmodule Uncapped.Auth do
     configure_session(conn, drop: true)
   end
 
-  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
-
   def login_by_username_and_pass(conn, username, given_pass, opts) do
     repo = Keyword.fetch!(opts, :repo)
     user = repo.get_by(Uncapped.User, username: username)
@@ -39,7 +38,17 @@ defmodule Uncapped.Auth do
     end
   end
 
-  def logout(conn) do
-    configure_session(conn, drop: true)
+  import Phoenix.Controller
+  alias Uncapped.Router.Helpers
+
+  def authenticate_user(conn, _opts) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: Helpers.page_path(conn, :index))
+      |> halt()
+    end
   end
 end

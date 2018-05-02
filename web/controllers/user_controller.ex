@@ -2,7 +2,7 @@ defmodule Uncapped.UserController do
   use Uncapped.Web, :controller
   alias Uncapped.User
 
-  plug :authenticate when action in [:index, :show]
+  plug :authenticate_user when action in [:index, :show]
 
   def index(conn, _params) do
     users = Repo.all(Uncapped.User)

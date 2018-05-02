@@ -37,6 +37,7 @@ defmodule Uncapped.Web do
 
       import Uncapped.Router.Helpers
       import Uncapped.Gettext
+      import Uncapped.Auth, only: [authenticate_user: 2] # New import
     end
   end
 
@@ -59,6 +60,7 @@ defmodule Uncapped.Web do
   def router do
     quote do
       use Phoenix.Router
+      import Uncapped.Auth, only: [authenticate_user: 2] # New import
     end
   end
 
