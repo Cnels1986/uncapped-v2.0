@@ -26,6 +26,8 @@ defmodule Uncapped.Router do
   scope "/manage", Uncapped do
     pipe_through [:browser, :authenticate_user]
 
-    resources "/breweries", BreweryController, only: [:index, :show, :new, :create, :delete]
+    resources "/breweries", BreweryController, only: [:index, :show, :new, :create, :delete] do
+      post "/addbeer", BreweryController, :add_beer
+    end
   end
 end

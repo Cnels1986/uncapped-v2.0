@@ -4,7 +4,7 @@
                              phoenix_live_reload,postgrex,phoenix_ecto]},
               {description,"uncapped"},
               {modules,['Elixir.Uncapped','Elixir.Uncapped.Auth',
-                        'Elixir.Uncapped.Brewery',
+                        'Elixir.Uncapped.Beer','Elixir.Uncapped.Brewery',
                         'Elixir.Uncapped.BreweryController',
                         'Elixir.Uncapped.BreweryView',
                         'Elixir.Uncapped.Endpoint',

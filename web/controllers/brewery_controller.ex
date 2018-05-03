@@ -2,8 +2,10 @@ defmodule Uncapped.BreweryController do
   use Uncapped.Web, :controller
 
   alias Uncapped.Brewery
+  alias Uncapped.Beer
 
   plug :scrub_params, "brewery" when action in [:create, :update]
+  plug :scrub_params, "beer" when action in [:add_beer]
 
   def index(conn, _params) do
     breweries = Repo.all(Brewery)
@@ -29,8 +31,9 @@ defmodule Uncapped.BreweryController do
   end
 
   def show(conn, %{"id" => id}) do
-    brewery = Repo.get!(Brewery, id)
-    render(conn, "show.html", brewery: brewery)
+    brewery = Repo.get(Brewery, id) |> Repo.preload([:beers])
+    changeset = Beer.changeset(%Beer{})
+    render(conn, "show.html", brewery: brewery, changeset: changeset)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -56,12 +59,25 @@ defmodule Uncapped.BreweryController do
   def delete(conn, %{"id" => id}) do
     brewery = Repo.get!(Brewery, id)
 
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
     Repo.delete!(brewery)
 
     conn
     |> put_flash(:info, "Brewery deleted successfully.")
     |> redirect(to: brewery_path(conn, :index))
+  end
+
+  def add_beer(conn, %{"beer" => beer_params, "brewery_id" => brewery_id}) do
+    changeset = Beer.changeset(%Beer{}, Map.put(beer_params, "brewery_id", brewery_id))
+    brewery = Brewery |> Repo.get(brewery_id) |> Repo.preload([:beers])
+
+    if changeset.valid? do
+      Repo.insert(changeset)
+
+      conn
+      |> put_flash(:info, "Beer added, enjoy.")
+      |> redirect(to: brewery_path(conn, :show, brewery))
+    else
+      render(conn, "show.html", brewery: brewery, changeset: changeset)
+    end
   end
 end

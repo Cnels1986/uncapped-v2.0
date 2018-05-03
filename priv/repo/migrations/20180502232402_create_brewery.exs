@@ -7,5 +7,6 @@ defmodule Uncapped.Repo.Migrations.CreateBrewery do
 
       timestamps()
     end
+    create unique_index(:breweries, [:name])
   end
 end
