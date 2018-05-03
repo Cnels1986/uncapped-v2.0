@@ -1,12 +1,16 @@
 <h2>Show brewery</h2>
 
 <ul>
-
   <li>
     <strong>Name:</strong>
     <%= @brewery.name %>
   </li>
-
 </ul>
+
+<%= render "beers.html", brewery: @brewery %>
+
+<h3>Add a beer from: <%= @brewery.name %></h3>
+<%= render "beer_form.html", brewery: @brewery, changeset: @changeset,
+action: brewery_brewery_path(@conn, :add_beer, @brewery) %>
 
 <span><%= link "Back", to: brewery_path(@conn, :index) %></span>
