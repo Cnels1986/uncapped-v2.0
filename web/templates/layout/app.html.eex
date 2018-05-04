@@ -21,6 +21,9 @@
               <%= link "Breweries", to: brewery_path(@conn, :index) %>
             </li>
             <li>
+              <%= link "Beers", to: beer_path(@conn, :index) %>
+            </li>
+            <li>
               <%= link "Log out", to: session_path(@conn, :delete, @current_user),
                method: "delete" %>
             </li>

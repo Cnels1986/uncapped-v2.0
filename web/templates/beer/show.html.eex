@@ -1,0 +1,2 @@
+<h2><%= @beer.name %></h2>
+<h3>Type: <%= @beer.type %></h3>

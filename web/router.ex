@@ -29,5 +29,8 @@ defmodule Uncapped.Router do
     resources "/breweries", BreweryController, only: [:index, :show, :new, :create, :delete] do
       post "/addbeer", BreweryController, :add_beer
     end
+    # resources "/beer", BeerController, only: [:show]
+    get "/beers/:id", BeerController, :show
+    get "/beers", BeerController, :index
   end
 end
