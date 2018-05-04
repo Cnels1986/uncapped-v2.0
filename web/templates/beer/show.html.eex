@@ -1,2 +1,9 @@
 <h2><%= @beer.name %></h2>
-<h3>Type: <%= @beer.type %></h3>
+
+<%= if @beer.type == nil do %>
+  <h3>Type: n/a</h3>
+<%= else %>
+  <h3>Type: <%= @beer.type %></h3>
+<%= end %>
+
+<h4>Rate this beer!</h4>

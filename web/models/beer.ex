@@ -5,6 +5,7 @@ defmodule Uncapped.Beer do
     field :name, :string
     field :type, :string
     belongs_to :brewery, Uncapped.Brewery, foreign_key: :brewery_id
+    has_many :checkins, Uncapped.Checkin
 
     timestamps()
   end

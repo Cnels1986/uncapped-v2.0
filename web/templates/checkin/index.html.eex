@@ -1,0 +1,28 @@
+<h2>Listing checkins</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Beer</th>
+      <th>Rating</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for checkin <- @checkins do %>
+    <tr>
+      <td><%= checkin.user_id %></td>
+      <td><%= checkin.beer_id %></td>
+      <td><%= checkin.rating %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: checkin_path(@conn, :show, checkin), class: "btn btn-default btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New checkin", to: checkin_path(@conn, :new) %></span>

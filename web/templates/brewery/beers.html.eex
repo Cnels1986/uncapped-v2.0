@@ -10,7 +10,13 @@
     <%= for beer <- @brewery.beers do %>
         <tr>
           <td><%= beer.name %></td>
-          <td><%= beer.type %></td>
+          <td>
+            <%= if beer.type == nil do %>
+              n/a
+            <%= else %>
+              <%= beer.type %>
+            <%= end %>
+          </td>
         </tr>
     <% end %>
   </tbody>

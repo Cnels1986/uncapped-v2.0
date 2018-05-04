@@ -24,6 +24,9 @@
               <%= link "Beers", to: beer_path(@conn, :index) %>
             </li>
             <li>
+              <%= link "Recent Checkins", to: checkin_path(@conn, :index) %>
+            </li>
+            <li>
               <%= link "Log out", to: session_path(@conn, :delete, @current_user),
                method: "delete" %>
             </li>
