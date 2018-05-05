@@ -2,6 +2,7 @@ defmodule Uncapped.CheckinController do
   use Uncapped.Web, :controller
 
   alias Uncapped.Checkin
+  alias Uncapped.Beer
 
   def index(conn, _params) do
     checkins = Repo.all(Checkin)
@@ -9,18 +10,24 @@ defmodule Uncapped.CheckinController do
   end
 
   def new(conn, _params) do
-    changeset = Checkin.changeset(%Checkin{})
+    changeset =
+      conn.assigns.current_user
+        |> build_assoc(:checkins)
+        |> Checkin.changeset()
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"checkin" => checkin_params}) do
-    changeset = Checkin.changeset(%Checkin{}, checkin_params)
+    changeset =
+      conn.assigns.current_user
+        |> build_assoc(:checkins)
+        |> Checkin.changeset(checkin_params)
 
     case Repo.insert(changeset) do
       {:ok, checkin} ->
         conn
         |> put_flash(:info, "Checkin created successfully.")
-        |> redirect(to: checkin_path(conn, :show, checkin))
+        |> redirect(to: checkin_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

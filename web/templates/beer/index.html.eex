@@ -6,5 +6,5 @@
       <td><%= beer.name %></td>
       <td><%= link "Checkout", to: beer_path(@conn, :show, beer.id) %></td>
     </tr>
-  <%= end %>
+  <% end %>
 </table>

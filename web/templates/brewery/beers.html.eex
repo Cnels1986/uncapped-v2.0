@@ -4,6 +4,7 @@
     <tr>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,10 +14,11 @@
           <td>
             <%= if beer.type == nil do %>
               n/a
-            <%= else %>
+            <% else %>
               <%= beer.type %>
-            <%= end %>
+            <% end %>
           </td>
+          <td><%= link "Test", to: beer_path(@conn, :show, beer.id) %></td>
         </tr>
     <% end %>
   </tbody>

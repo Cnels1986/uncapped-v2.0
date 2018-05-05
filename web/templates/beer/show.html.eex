@@ -2,8 +2,8 @@
 
 <%= if @beer.type == nil do %>
   <h3>Type: n/a</h3>
-<%= else %>
+<% else %>
   <h3>Type: <%= @beer.type %></h3>
-<%= end %>
+<% end %>
 
-<h4>Rate this beer!</h4>
+<h4><%= link "Rate It!", to: checkin_path(@conn, :new) %></h4>

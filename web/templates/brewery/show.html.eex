@@ -7,7 +7,7 @@
   </li>
 </ul>
 
-<%= render "beers.html", brewery: @brewery %>
+<%= render "beers.html", brewery: @brewery, conn: @conn %>
 
 <h3>Add a beer from: <%= @brewery.name %></h3>
 
