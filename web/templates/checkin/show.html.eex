@@ -1,0 +1,22 @@
+<h2>Show checkin</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @checkin.user_id %>
+  </li>
+
+  <li>
+    <strong>Beer:</strong>
+    <%= @checkin.beer_id %>
+  </li>
+
+  <li>
+    <strong>Rating:</strong>
+    <%= @checkin.rating %>
+  </li>
+
+</ul>
+
+<span><%= link "Back", to: checkin_path(@conn, :index) %></span>

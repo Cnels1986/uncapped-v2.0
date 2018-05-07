@@ -1,0 +1,6 @@
+<h2>New checkin</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: checkin_path(@conn, :create) %>
+
+<span><%= link "Back", to: checkin_path(@conn, :index) %></span>

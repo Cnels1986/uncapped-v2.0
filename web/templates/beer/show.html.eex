@@ -1,0 +1,9 @@
+<h2><%= @beer.name %></h2>
+
+<%= if @beer.type == nil do %>
+  <h3>Type: n/a</h3>
+<% else %>
+  <h3>Type: <%= @beer.type %></h3>
+<% end %>
+
+<%= render "checkin_form.html", beer: @beer, changeset: @changeset, action: beer_beer_path(@conn, :checkin, @beer) %>

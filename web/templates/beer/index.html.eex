@@ -1,0 +1,10 @@
+<h1>Registered Beers</h1>
+
+<table class="table">
+  <%= for beer <- @beers do %>
+    <tr>
+      <td><%= beer.name %></td>
+      <td><%= link "Checkout", to: beer_path(@conn, :show, beer.id) %></td>
+    </tr>
+  <% end %>
+</table>

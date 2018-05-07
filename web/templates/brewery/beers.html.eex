@@ -4,13 +4,21 @@
     <tr>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <%= for beer <- @brewery.beers do %>
         <tr>
           <td><%= beer.name %></td>
-          <td><%= beer.type %></td>
+          <td>
+            <%= if beer.type == nil do %>
+              n/a
+            <% else %>
+              <%= beer.type %>
+            <% end %>
+          </td>
+          <td><%= link "Test", to: beer_path(@conn, :show, beer.id) %></td>
         </tr>
     <% end %>
   </tbody>

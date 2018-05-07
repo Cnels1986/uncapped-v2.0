@@ -16,9 +16,15 @@
       <div class="header">
         <ol class="breadcrumb text-right">
           <%= if @current_user do %>
-            <li><%= @current_user.username %></li>
+            <li>Hello, <%= @current_user.username %></li>
             <li>
               <%= link "Breweries", to: brewery_path(@conn, :index) %>
+            </li>
+            <li>
+              <%= link "Beers", to: beer_path(@conn, :index) %>
+            </li>
+            <li>
+              <%= link "Recent Checkins", to: checkin_path(@conn, :index) %>
             </li>
             <li>
               <%= link "Log out", to: session_path(@conn, :delete, @current_user),
@@ -28,7 +34,6 @@
             <li><%= link "Register", to: user_path(@conn, :new) %></li>
             <li><%= link "Log in", to: session_path(@conn, :new) %></li>
           <% end %> </ol>
-        <span class="logo"></span>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
