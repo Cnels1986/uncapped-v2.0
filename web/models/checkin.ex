@@ -11,8 +11,9 @@ defmodule Uncapped.Checkin do
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:rating])
+    |> cast(params, [:rating, :beer_id, :user_id])
     |> validate_required([:rating])
     |> validate_number(:rating, greater_than: 0, less_than: 6)
+    |> cast_assoc(:user)
   end
 end
