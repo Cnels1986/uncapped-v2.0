@@ -1,21 +1,32 @@
-<h2>Show checkin</h2>
+<h2>Show <%= @beer.name %> checkin:</h2>
 
 <ul>
 
   <li>
     <strong>User:</strong>
-    <%= @checkin.user_id %>
+    <%= @user.username %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
   </li>
 
   <li>
     <strong>Beer:</strong>
-    <%= @checkin.beer_id %>
+    <%= @beer.name %>
+  </li>
+
+  <li>
+    <Strong>Type:</Strong>
+    <%= @beer.type %>
   </li>
 
   <li>
     <strong>Rating:</strong>
     <%= @checkin.rating %>
   </li>
+
 
 </ul>
 

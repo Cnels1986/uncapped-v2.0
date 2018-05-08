@@ -18,7 +18,7 @@
               <%= beer.type %>
             <% end %>
           </td>
-          <td><%= link "Test", to: beer_path(@conn, :show, beer.id) %></td>
+          <td><%= link "Rate this beer", to: beer_path(@conn, :show, beer.id) %></td>
         </tr>
     <% end %>
   </tbody>

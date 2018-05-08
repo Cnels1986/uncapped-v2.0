@@ -4,7 +4,8 @@
   <%= for beer <- @beers do %>
     <tr>
       <td><%= beer.name %></td>
-      <td><%= link "Checkout", to: beer_path(@conn, :show, beer.id) %></td>
+      <td><%= beer.type %></td>
+      <td><%= link "Rate this beer", to: beer_path(@conn, :show, beer.id) %></td>
     </tr>
   <% end %>
 </table>

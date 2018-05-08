@@ -33,6 +33,6 @@ defmodule Uncapped.Router do
     resources "/beer", BeerController, only: [:show, :index] do
       post "/checkin", BeerController, :checkin
     end
-    resources "/checkin", CheckinController
+    resources "/checkin", CheckinController, only: [:show, :index]
   end
 end

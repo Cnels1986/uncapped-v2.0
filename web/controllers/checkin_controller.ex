@@ -3,9 +3,11 @@ defmodule Uncapped.CheckinController do
 
   alias Uncapped.Checkin
   alias Uncapped.Beer
+  alias Uncapped.User
 
   def index(conn, _params) do
     checkins = Repo.all(Checkin)
+    beer = Repo.all(Beer)
     render(conn, "index.html", checkins: checkins)
   end
 
@@ -33,8 +35,21 @@ defmodule Uncapped.CheckinController do
     end
   end
 
+  def get_beer(id) do
+    Repo.one(from b in Beer, where: b.id == ^id)
+  end
+
+  def get_user(id) do
+    Repo.one(from u in User, where: u.id == ^id)
+  end
+
   def show(conn, %{"id" => id}) do
     checkin = Repo.get!(Checkin, id)
-    render(conn, "show.html", checkin: checkin)
+    beer = get_beer(checkin.beer_id)
+    user = get_user(checkin.user_id)
+    render(conn, "show.html", checkin: checkin, beer: beer, user: user)
   end
+
+
+
 end
