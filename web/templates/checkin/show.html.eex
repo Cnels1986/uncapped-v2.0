@@ -1,4 +1,4 @@
-<h2>Show checkin</h2>
+<h2>Show <%= @beer.name %> checkin:</h2>
 
 <ul>
 
@@ -8,14 +8,25 @@
   </li>
 
   <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
     <strong>Beer:</strong>
     <%= @beer.name %>
+  </li>
+
+  <li>
+    <Strong>Type:</Strong>
+    <%= @beer.type %>
   </li>
 
   <li>
     <strong>Rating:</strong>
     <%= @checkin.rating %>
   </li>
+
 
 </ul>
 

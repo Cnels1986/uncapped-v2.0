@@ -9,7 +9,7 @@
 
 <%= render "beers.html", brewery: @brewery, conn: @conn %>
 
-<h3>Add a beer from: <%= @brewery.name %></h3>
+<h3>Can't find a <%= @brewery.name %> beer? Add it to the app.</h3>
 
 <%= render "beer_form.html", brewery: @brewery, changeset: @changeset,
 action: brewery_brewery_path(@conn, :add_beer, @brewery) %>

@@ -6,7 +6,7 @@ defmodule Uncapped.BeerController do
   alias Uncapped.Checkin
 
   def show(conn, %{"id" => id}) do
-    beer = Repo.get!(Beer, id) |> Repo.preload([:checkins])
+    beer = Repo.get!(Beer, id)
     changeset = Checkin.changeset(%Checkin{})
     render(conn, "show.html", beer: beer, changeset: changeset)
   end

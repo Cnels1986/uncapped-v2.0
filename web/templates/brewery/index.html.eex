@@ -14,8 +14,7 @@
       <td><%= brewery.name %></td>
 
       <td class="text-right">
-        <span><%= link "Beers", to: brewery_path(@conn, :show, brewery), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: brewery_path(@conn, :delete, brewery), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link " View Beers", to: brewery_path(@conn, :show, brewery), class: "btn btn-default btn-xs" %></span>
       </td>
     </tr>
 <% end %>

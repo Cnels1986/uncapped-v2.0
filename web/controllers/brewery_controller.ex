@@ -36,36 +36,6 @@ defmodule Uncapped.BreweryController do
     render(conn, "show.html", brewery: brewery, changeset: changeset)
   end
 
-  def edit(conn, %{"id" => id}) do
-    brewery = Repo.get!(Brewery, id)
-    changeset = Brewery.changeset(brewery)
-    render(conn, "edit.html", brewery: brewery, changeset: changeset)
-  end
-
-  def update(conn, %{"id" => id, "brewery" => brewery_params}) do
-    brewery = Repo.get!(Brewery, id)
-    changeset = Brewery.changeset(brewery, brewery_params)
-
-    case Repo.update(changeset) do
-      {:ok, brewery} ->
-        conn
-        |> put_flash(:info, "Brewery updated successfully.")
-        |> redirect(to: brewery_path(conn, :show, brewery))
-      {:error, changeset} ->
-        render(conn, "edit.html", brewery: brewery, changeset: changeset)
-    end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    brewery = Repo.get!(Brewery, id)
-
-    Repo.delete!(brewery)
-
-    conn
-    |> put_flash(:info, "Brewery deleted successfully.")
-    |> redirect(to: brewery_path(conn, :index))
-  end
-
   def add_beer(conn, %{"beer" => beer_params, "brewery_id" => brewery_id}) do
     changeset = Beer.changeset(%Beer{}, Map.put(beer_params, "brewery_id", brewery_id))
     brewery = Brewery |> Repo.get(brewery_id) |> Repo.preload([:beers])
