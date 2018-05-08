@@ -4,12 +4,12 @@
 
   <li>
     <strong>User:</strong>
-    <%= @checkin.user_id %>
+    <%= @user.username %>
   </li>
 
   <li>
     <strong>Beer:</strong>
-    <%= @checkin.beer_id %>
+    <%= @beer.name %>
   </li>
 
   <li>

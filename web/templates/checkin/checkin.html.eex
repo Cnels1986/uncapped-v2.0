@@ -1,0 +1,3 @@
+<td><%= get_user(@checkin.user_id).username %></td>
+<td><%= get_beer(@checkin.beer_id).name %></td>
+<td><%= @checkin.rating %></td>
