@@ -6,4 +6,6 @@
   <h3>Type: <%= @beer.type %></h3>
 <% end %>
 
+<h3 class="note">Rating: 1(bad) - 5(great)</h3>
+
 <%= render "checkin_form.html", beer: @beer, changeset: @changeset, action: beer_beer_path(@conn, :checkin, @beer) %>

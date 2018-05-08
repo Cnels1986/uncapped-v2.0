@@ -77,23 +77,31 @@
   box-shadow: 5px 5px 20px;
   min-height: 250px;
   position: relative;
-  top: 100px;
+  top: 40px;
+  padding-bottom: 10px;
 }
 .contentContainer h1{
   font-size: 24px;
   padding: 10px 0 20px;
 }
+.contentContainer h2{
+  font-size: 22px;
+  padding: 10px 0 20px;
+}
 
 .form-group{
-  padding: 10px 15px;
+  padding: 10px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 35%;
+  width: 30%;
   margin: 0 auto;
 }
 .form-group span{
   font-size: 10px;
+}
+.form-group input{
+  width: 300px;
 }
 
 .title{
@@ -116,4 +124,17 @@
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 15px;
+}
+
+.mainTitle{
+  font-size: 30px;
+}
+
+.note{
+  font-size: 10px;
+  padding-top: 10px;
+}
+
+.btn{
+  margin: 0 auto;
 }
