@@ -1,11 +1,6 @@
 <h2>Show brewery</h2>
 
-<ul>
-  <li>
-    <strong>Name:</strong>
-    <%= @brewery.name %>
-  </li>
-</ul>
+<h2><%= @brewery.name%></h2>
 
 <%= render "beers.html", brewery: @brewery, conn: @conn %>
 

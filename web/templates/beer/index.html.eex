@@ -9,3 +9,5 @@
     </tr>
   <% end %>
 </table>
+
+<h3 class = "note">Don't see your beer? Add it by brewery in the Breweries section.</h3>

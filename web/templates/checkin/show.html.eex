@@ -1,33 +1,26 @@
-<h2>Show <%= @beer.name %> checkin:</h2>
+<h2>Check out <%= @user.username %>'s checkin</h2>
 
-<ul>
-
-  <li>
-    <strong>User:</strong>
-    <%= @user.username %>
-  </li>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </li>
-
-  <li>
-    <strong>Beer:</strong>
-    <%= @beer.name %>
-  </li>
-
-  <li>
-    <Strong>Type:</Strong>
-    <%= @beer.type %>
-  </li>
-
-  <li>
-    <strong>Rating:</strong>
-    <%= @checkin.rating %>
-  </li>
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Username: </th>
+      <th>Name:</th>
+      <th>Beer:</th>
+      <th>Type:</th>
+      <th>Rating:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @user.username %></td>
+      <td><%= @user.name %></td>
+      <td><%= @beer.name %></td>
+      <td><%= @beer.type %></td>
+      <td><%= @checkin.rating %></td>
+    </tr>
+  </tbody>
+</table>
 
 
-</ul>
 
 <span><%= link "Back", to: checkin_path(@conn, :index) %></span>
