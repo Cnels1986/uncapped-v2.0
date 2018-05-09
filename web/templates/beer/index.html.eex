@@ -1,4 +1,4 @@
-<h1>Registered Beers</h1>
+<h1>The Big List of Beers</h1>
 
 <table class="table">
   <%= for beer <- @beers do %>
@@ -10,4 +10,4 @@
   <% end %>
 </table>
 
-<h3 class = "note">Don't see your beer? Add it by brewery in the Breweries section.</h3>
+<h3 class = "note">Don't see your beer? Add it by brewery it's in the Breweries section.</h3>
