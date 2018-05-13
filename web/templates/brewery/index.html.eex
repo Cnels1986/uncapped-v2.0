@@ -9,15 +9,15 @@
     </tr>
   </thead>
   <tbody>
-<%= for brewery <- @breweries do %>
-    <tr>
-      <td><%= brewery.name %></td>
+    <%= for brewery <- @breweries do %>
+      <tr>
+        <td><%= brewery.name %></td>
 
-      <td class="text-right">
-        <span><%= link " View Beers", to: brewery_path(@conn, :show, brewery), class: "btn btn-default btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
+        <td class="text-right">
+          <span><%= link " View Beers", to: brewery_path(@conn, :show, brewery), class: "btn btn-default btn-xs" %></span>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
